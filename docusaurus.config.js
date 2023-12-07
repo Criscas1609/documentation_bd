@@ -37,7 +37,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/AFTR05/Docusaurus_NoSQLPage.git',
+            'https://github.com/Criscas1609/documentation_bd.git',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -50,10 +50,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'NoSQL Site',
+        title: 'BD NoSQL',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logi.svg',
+          src: 'img/logoC.svg',
         },
         items: [
           {
@@ -63,7 +63,7 @@ const config = {
             label: 'Doc',
           },
           {
-            href: 'https://github.com/AFTR05/Docusaurus_NoSQLPage.git',
+            href: 'https://github.com/Criscas1609/documentation_bd.git',
             label: 'GitHub',
             position: 'right',
           },

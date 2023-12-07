@@ -86,9 +86,21 @@ MongoDB es un sistema de gestión de bases de datos NoSQL orientado a documentos
    - Ejecuta:
 
      ```bash
-     docker run -d -p 27017:27017 --name my-mongo-container mongo
+     docker run -d -p 27017:27017 --name=mongo mongo:4.2
      ```
 
-   - Conecta a MongoDB desde `mongodb://localhost:27017`.
+   - Despues se inicializa en Docker:
+
+    ```bash
+      docker exec -it mongo bash
+     ```
+
+     - Deste la terminal del bash se escribe mongo y listo:
+   
+    ```bash
+      mongo
+     ```
+
+    [![asciicast](https://asciinema.org/a/cnOfYn8N2ncjjYw0VlEVfveby.svg)](https://asciinema.org/a/cnOfYn8N2ncjjYw0VlEVfveby)
 
 Estos son los pasos básicos para instalar MongoDB en diferentes sistemas operativos y Docker. Consulta la documentación oficial de MongoDB para detalles más específicos según la versión que estás instalando.

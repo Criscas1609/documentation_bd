@@ -7,95 +7,114 @@ sidebar_position: 2
 
 ## Operaciones Básicas en MongoDB
 
-- Conexión a mongo
-    ```bash
-     mongosh
-    ```
 
 - Creacion de base de datos MongoDB:
 
     ```bash
-     use tiendaFrutas
+     use tiendaTelefonos
     ```
 
 - Creación de una base de datos:
 
     ```bash
-     db.createCollection("frutas")
+     db.createCollection("telefonos")
     ```
 
 - Inserción de datos:
 
     ```bash
-     db.frutas.insert({ nombre: "Manzana", tipo: "Roja", precio: 2.5 })
-     db.frutas.insert({ nombre: "Plátano", tipo: "Amarillo", precio: 1.2 })
+     db.telefonos.insert({ modelo: "iPhone 13", marca: "Apple", almacenamiento: 128, precio: 999.99 })
+     db.telefonos.insert({ modelo: "Galaxy S21", marca: "Samsung", almacenamiento: 256, precio: 899.99 })
+
     ```
 
     O utilizando insertMany para insertar varios documentos a la vez:
 
     ```bash
-     db.frutas.insertMany([{ nombre: "Fresa", tipo: "Roja", precio: 3.0 },{ nombre: "Uva", tipo: "Morada", precio: 2.8 }])
+        db.telefonos.insertMany([
+        { modelo: "Pixel 6", marca: "Google", almacenamiento: 128, precio: 799.99 },
+        { modelo: "OnePlus 9", marca: "OnePlus", almacenamiento: 256, precio: 899.99 }
+        ])
     ```
 
 - Consulta de datos:
 
     ```bash
-     db.frutas.find()
+     ddb.telefonos.find()
+
     ```
 
 
 - También puedes realizar consultas más específicas:
 
     ```bash
-     db.frutas.find({ tipo: "Roja" })
+     db.telefonos.find({ marca: "Apple" })
     ```
 
 
 - Actualización de datos:
 
     ```bash
-     // Actualizar el precio de las manzanas
-     db.frutas.update({ nombre: "Manzana" }, { $set: { precio: 2.8 } })
+     // Actualizar el precio del iPhone 13
+    db.telefonos.update({ modelo: "iPhone 13" }, { $set: { precio: 1099.99 } })
+
     ```
 
     - updateOne:
         ```bash
-         // Actualizar el precio de las manzanas utilizando updateOne
-         db.frutas.updateOne({ nombre: "Manzana" }, { $set: { precio: 2.8 } })
+        // Actualizar el precio del iPhone 13 utilizando updateOne
+         db.telefonos.updateOne({ modelo: "iPhone 13" }, { $set: { precio: 1099.99 } })
+
         ```
 
     - updateMany:
         ```bash
-         // Actualizar el tipo de todas las frutas a "Dulce"
-         db.frutas.updateMany({}, { $set: { tipo: "Dulce" } })
+         // Actualizar el almacenamiento de todos los teléfonos a 512 GB
+         db.telefonos.updateMany({}, { $set: { almacenamiento: 512 } })
+
         ```
 
 - Eliminación de datos:
 
     ```bash
-     // Eliminar todas las uvas
-     db.frutas.remove({ nombre: "Uva" })
+     // Eliminar el Galaxy S21
+     db.telefonos.remove({ modelo: "Galaxy S21" })
+
     ```
 
     - deleteOne: 
         ```bash
-         // Eliminar una manzana específica utilizando deleteOne
-         db.frutas.deleteOne({ nombre: "Manzana" })
+         // Eliminar un modelo específico utilizando deleteOne
+         db.telefonos.deleteOne({ modelo: "Pixel 6" })
+
         ```
 
     - deleteMany: 
         ```bash
-         // Eliminar todas las frutas con un precio menor a 2.0
-         db.frutas.deleteMany({ precio: { $lt: 2.0 } })
+         // Eliminar todos los teléfonos con un precio menor a 900.0
+         db.telefonos.deleteMany({ precio: { $lt: 900.0 } })
+
         ```
 - Índices:
 
     ```bash
-     // Crear un índice en el campo 'nombre'
-     db.frutas.createIndex({ nombre: 1 })
+     // Crear un índice en el campo 'modelo'
+     db.telefonos.createIndex({ modelo: 1 })
     ```
 
-Estos son ejemplos básicos que te dan una idea de cómo realizar operaciones CRUD en MongoDB con una colección de frutas. Puedes adaptar estos ejemplos según tus necesidades específicas.
+Este ejemplo proporciona comandos básicos de MongoDB para realizar operaciones comunes en una base de datos de una tienda de teléfonos.
+
+# Aplicación parciales
+## Explicación de caso de uso
+
+*El contexto de aplicación gira en torno al desarrollo de un sistema generador de exámenes parciales. Este proyecto surge como resultado de la automatización del proceso de creación de evaluaciones parciales destinadas a profesores. La finalidad de este innovador sistema es simplificar y acelerar la labor docente al proporcionar una herramienta eficaz y personalizable. Esta herramienta permitirá la generación rápida y precisa de exámenes parciales, optimizando así el tiempo dedicado a la preparación de material evaluativo. Con esta solución automatizada, los educadores pueden dirigir su energía hacia actividades pedagógicas más significativas. Al mismo tiempo, se asegura la calidad y relevancia de los exámenes parciales utilizados para evaluar el desempeño académico de los estudiantes.*
+
+
+![Partial](./data/diagrama_partial_generator.jpeg)
+
+Crear y ver las datos de las tablas
+
+[![asciicast](https://asciinema.org/a/TzIYA6JzWQOL6lVJmhv4jptNH.svg)](https://asciinema.org/a/TzIYA6JzWQOL6lVJmhv4jptNH)
 
 
 
